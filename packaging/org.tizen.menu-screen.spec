@@ -87,6 +87,7 @@ init_vconf()
 	vconftool set -t int memory/idle-screen/top 0 -i -u 5000 -f
 	vconftool set -t string file/private/org.tizen.menu-screen/engine "gl" -i -u 5000 -f
 	vconftool set -t string db/setting/menuscreen/package_name "org.tizen.menu-screen" -i -u 5000 -f
+	vconftool set -t bool db/private/org.tizen.menu-screen/app_relay 0 -g 5000
 }
 init_vconf
 

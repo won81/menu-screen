@@ -34,7 +34,7 @@
 #define CHANGE_POSITION_COUNT 5
 #define MOVE_THRESHOLD 10
 
-
+#define VCONFKEY_APP_RELAY     "db/private/org.tizen.menu-screen/app_relay"
 
 static struct {
 	Ecore_Event_Handler *mouse_down;
@@ -88,7 +88,32 @@ HAPI bool mouse_is_scrolling(void)
 	return scroll_x || scroll_y;
 }
 
+static int _set_app_relay_value(int b_val)
+{
+	if (vconf_set_bool(VCONFKEY_APP_RELAY, b_val))
+	{
+		_D("APP_RELAY: Fail to set VCONFKEY_APP_RELAY\n");
+		return -1;
+	}
 
+	return 0;
+}
+
+static int _get_app_relay_value(int *b_val)
+{
+	if (vconf_get_bool(VCONFKEY_APP_RELAY, b_val))
+	{
+		_D("APP_RELAY: Fail to get VCONFKEY_APP_RELAY\n");
+
+		if (vconf_set_bool(VCONFKEY_APP_RELAY, FALSE))
+		{
+			_D("APP_RELAY: Fail to set MP_VCONFKEY_MUSIC_SHUFFLE\n");
+			return -1;
+		}
+		*b_val = FALSE;
+	}
+	return 0;
+}
 
 static Eina_Bool _down_cb(void *data, int type, void *event)
 {
@@ -100,7 +125,11 @@ static Eina_Bool _down_cb(void *data, int type, void *event)
 
 	if ((move->root.x > 900 && move->root.x < 1000) &&
 			(move->root.y > 0 && move->root.y < 50)) {
-		_D("=================================================> TEST\n");
+		int b_val;
+
+		_get_app_relay_value(&b_val);
+		_set_app_relay_value((b_val == 0)? TRUE : FALSE);
+		_D("APP_RELAY: Trigger App Relay\n");
 	}
 
 	mouse_info.pressed = true;
