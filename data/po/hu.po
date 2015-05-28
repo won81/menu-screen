@@ -1,8 +1,0 @@
-msgid "IDS_HS_BUTTON_DONE"
-msgstr "Kész"
-
-msgid "IDS_AT_POP_UNINSTALL_PS_Q"
-msgstr "Eltávolítja a(z) %s animált emotikont?"
-
-msgid "IDS_AT_BODY_UNINSTALL"
-msgstr "Eltávolítás"

@@ -1,8 +1,0 @@
-msgid "IDS_HS_BUTTON_DONE"
-msgstr "เรียบร้อย"
-
-msgid "IDS_AT_POP_UNINSTALL_PS_Q"
-msgstr "ถอนการติดตั้ง %s?"
-
-msgid "IDS_AT_BODY_UNINSTALL"
-msgstr "ลบการติดตั้ง"

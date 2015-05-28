@@ -1,8 +1,0 @@
-msgid "IDS_HS_BUTTON_DONE"
-msgstr "Qilindi"
-
-msgid "IDS_AT_POP_UNINSTALL_PS_Q"
-msgstr "%s olib tashlansinmi?"
-
-msgid "IDS_AT_BODY_UNINSTALL"
-msgstr "Olib tashlash"

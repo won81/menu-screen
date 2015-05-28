@@ -1,8 +1,0 @@
-msgid "IDS_HS_BUTTON_DONE"
-msgstr "انجام شد"
-
-msgid "IDS_AT_POP_UNINSTALL_PS_Q"
-msgstr "لغو نصب %s؟"
-
-msgid "IDS_AT_BODY_UNINSTALL"
-msgstr "لغو نصب"

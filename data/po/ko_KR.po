@@ -1,8 +1,0 @@
-msgid "IDS_HS_BUTTON_DONE"
-msgstr "완료"
-
-msgid "IDS_AT_POP_UNINSTALL_PS_Q"
-msgstr "%s을(를) 삭제할까요?"
-
-msgid "IDS_AT_BODY_UNINSTALL"
-msgstr "삭제"

@@ -1,8 +1,0 @@
-msgid "IDS_HS_BUTTON_DONE"
-msgstr "Done"
-
-msgid "IDS_AT_POP_UNINSTALL_PS_Q"
-msgstr "Uninstall %s?"
-
-msgid "IDS_AT_BODY_UNINSTALL"
-msgstr "Uninstall"

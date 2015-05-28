@@ -1,7 +1,0 @@
-Name=Simple Menu Screen
-Type=Application
-Exec=@EXEC_PREFIX@/@PROJECT_NAME@
-Icon=@PACKAGE_NAME@.png
-NoDisplay=True
-X-Tizen-TaskManage=False
-X-Tizen-Removable=False
