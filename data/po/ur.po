@@ -1,0 +1,8 @@
+msgid "IDS_HS_BUTTON_DONE"
+msgstr "مکمل"
+
+msgid "IDS_AT_POP_UNINSTALL_PS_Q"
+msgstr "%s نا تنصیب کریں؟"
+
+msgid "IDS_AT_BODY_UNINSTALL"
+msgstr "نا تنصیب کریں"

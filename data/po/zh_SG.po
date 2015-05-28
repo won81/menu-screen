@@ -1,0 +1,8 @@
+msgid "IDS_HS_BUTTON_DONE"
+msgstr "完成"
+
+msgid "IDS_AT_POP_UNINSTALL_PS_Q"
+msgstr "是否卸载 %s？"
+
+msgid "IDS_AT_BODY_UNINSTALL"
+msgstr "卸载"

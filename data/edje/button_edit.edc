@@ -1,0 +1,294 @@
+ /*
+  * Copyright 2012  Samsung Electronics Co., Ltd
+  *
+  * Licensed under the Flora License, Version 1.1 (the "License");
+  * you may not use this file except in compliance with the License.
+  * You may obtain a copy of the License at
+  *
+  *     http://floralicense.org/license/
+  *
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  */
+
+
+
+#define BUTTON_EDIT_BG_SIZE 98 56
+#define BUTTON_EDIT_IMAGE_SIZE 35 35
+
+
+
+images {
+	image: "../images/btn_edit_nor.9.png" COMP;
+	image: "../images/btn_edit_press.9.png" COMP;
+	image: "../images/icon_btn_edit_press.png" COMP;
+	image: "../images/icon_btn_edit_nor.png" COMP;
+	image: "../images/icon_btn_done_press.png" COMP;
+	image: "../images/icon_btn_done_nor.png" COMP;
+}
+
+
+
+collections {
+	group {
+		name: "button_edit";
+		parts {
+            part {
+				name: "edit_button";
+				type: RECT;
+				scale: 1;
+				mouse_events: 1;
+				description {
+					state: "default" 0.0;
+					rel1 { relative: 0.0 0.0; }
+					rel2 { relative: 1.0 1.0; }
+					visible: 0;
+				}
+				description {
+					state: "enable" 0.0;
+					inherit: "default" 0.0;
+				}
+				description {
+					state: "hide" 0.0;
+					inherit: "default" 0.0;
+				}
+			}
+            part {
+				name: "edit_button_bg";
+				type: IMAGE;
+				scale: 1;
+				mouse_events: 1;
+				description {
+					state: "default" 0.0;
+					rel1 { relative: 0.5 0.5; to, "edit_button"; }
+					rel2 { relative: 0.5 0.5; to, "edit_button"; }
+					min: BUTTON_EDIT_BG_SIZE;
+					max: BUTTON_EDIT_BG_SIZE;
+					fixed: 1 1;
+					image {
+						normal: "../images/btn_edit_nor.9.png";
+						border: 30 30 0 0;
+						middle: DEFAULT;
+						border_scale: 0;
+					}
+					color: 255 255 255 255;
+					visible: 1;
+				}
+				description {
+					state: "edit" 0.0;
+					inherit: "default" 0.0;
+				}
+				description {
+					state: "enable" 0.0;
+					inherit: "default" 0.0;
+					color: 255 255 255 255;
+				}
+				description {
+					state: "press" 0.0;
+					inherit: "default" 0.0;
+					image {
+						normal: "../images/btn_edit_press.9.png";
+					}
+				}
+				description {
+					state: "hide" 0.0;
+					inherit: "default" 0.0;
+					visible: 0;
+				}
+			}
+            part {
+                name: "edit_button_image";
+                type: IMAGE;
+				scale: 1;
+                mouse_events: 1;
+                description {
+                    state: "default" 0.0;
+                    align: 0.5 0.5;
+					rel1 { relative: 0.5 0.5; to, "edit_button_bg";}
+					rel2 { relative: 0.5 0.5; to, "edit_button_bg";}
+					image {
+						normal: "../images/icon_btn_edit_nor.png";
+					}
+					min: BUTTON_EDIT_IMAGE_SIZE;
+					max: BUTTON_EDIT_IMAGE_SIZE;
+					fixed: 1 1;
+					visible: 1;
+                }
+				description {
+					state: "edit" 0.0;
+					inherit: "default" 0.0;
+					image {
+						normal: "../images/icon_btn_done_nor.png";
+					}
+				}
+                description {
+                    state: "press" 0.0;
+                    inherit: "default" 0.0;
+					image {
+						normal: "../images/icon_btn_edit_press.png";
+					}
+                }
+				description {
+					state: "edit_press" 0.0;
+					inherit: "default" 0.0;
+					image {
+						normal: "../images/icon_btn_done_press.png";
+					}
+				}
+            }
+            part {
+                name: "edit_button_event";
+                type: RECT;
+				scale: 1;
+                mouse_events: 1;
+                description {
+					state: "default" 0.0;
+					rel1 { relative: -0.1 -0.1; to: "edit_button_bg"; }
+					rel2 { relative: 1.1 1.1; to: "edit_button_bg"; }
+					color: 0 0 0 0;
+					visible: 1;
+                }
+				description {
+					state: "hide" 0.0;
+					inherit: "default" 0.0;
+					visible: 0;
+				}
+            }
+			part {
+				name: "focus";
+				type: SWALLOW;
+				scale: 1;
+				mouse_events: 1;
+				repeat_events: 1;
+				description {
+					state: "default" 0.0;
+					rel1 { relative: 0.0 0.0; to: "edit_button_event"; }
+					rel2 { relative: 1.0 1.0; to: "edit_button_event"; }
+					fixed: 1 1;
+					visible: 1;
+				}
+			}
+            part {
+                name: "state_edit";
+                type: RECT;
+				scale: 1;
+                mouse_events: 1;
+                description {
+					state: "default" 0.0;
+					visible: 0;
+                }
+				description {
+					state: "edit" 0.0;
+					inherit: "default" 0.0;
+				}
+            }
+		}
+
+		programs {
+			program {
+				name: "edit_button,down";
+				signal: "mouse,down,1";
+				source: "edit_button_event";
+				action: STATE_SET "press" 0.0;
+				target: "edit_button_bg";
+				after: "press_state";
+			}
+			program {
+				name: "press_state";
+				script {
+					new st[31];
+					new Float:vl;
+					get_state(PART:"state_edit", st, 30, vl);
+					if (!strcmp(st, "default"))
+					{
+						set_state(PART:"edit_button_image", "press", 0.0);
+					}
+					else
+					{
+						set_state(PART:"edit_button_image", "edit_press", 0.0);
+					}
+				}
+				after: "edit_button,down,after";
+			}
+			program {
+				name: "edit_button,down,after";
+				action: SIGNAL_EMIT "edit_button,down" "menu";
+			}
+
+			program {
+				name: "edit_button,up";
+				signal: "mouse,up,1";
+				source: "edit_button_event";
+				action: STATE_SET "default" 0.0;
+				target: "edit_button_bg";
+				after: "edit_button,up,after";
+			}
+			program { // Edit or unedit in C codes.
+				name: "edit_button,up,after";
+				action: SIGNAL_EMIT "edit_button,up" "menu";
+			}
+			program { // This program is called from C.
+				name: "release_state";
+				signal: "edit_button,release";
+				source: "menu";
+				script {
+					new st[31];
+					new Float:vl;
+					get_state(PART:"state_edit", st, 30, vl);
+					if (!strcmp(st, "default")) // Normal mode
+					{
+						set_state(PART:"edit_button_image", "default", 0.0);
+					}
+					else // Edit mode
+					{
+						set_state(PART:"edit_button_image", "edit", 0.0);
+					}
+				}
+			}
+
+			program { // Edit mode
+				name: "edit_button_state,edit";
+				signal: "edit_button_state,edit";
+				source: "menu";
+				action: STATE_SET "edit" 0.0;
+				target: "state_edit";
+				target: "edit_button_bg";
+				target: "edit_button_image";
+			}
+			program { // Normal mode
+				name: "edit_button_state,unedit";
+				signal: "edit_button_state,unedit";
+				source: "menu";
+				action: STATE_SET "default" 0.0;
+				target: "state_edit";
+				target: "edit_button_bg";
+				target: "edit_button_image";
+			}
+
+			program {
+				name: "edit_button,show";
+				signal: "edit_button,show";
+				source: "menu";
+				action: STATE_SET "default" 0.0;
+				target: "edit_button_bg";
+				target: "edit_button_image";
+				target: "edit_button_event";
+			}
+			program {
+				name: "edit_button,hide";
+				signal: "edit_button,hide";
+				source: "menu";
+				action: STATE_SET "hide" 0.0;
+				target: "edit_button_bg";
+				target: "edit_button_image";
+				target: "edit_button_event";
+			}
+		}
+	}
+}
+
+
+// End of file

@@ -1,0 +1,8 @@
+msgid "IDS_HS_BUTTON_DONE"
+msgstr "تم"
+
+msgid "IDS_AT_POP_UNINSTALL_PS_Q"
+msgstr "هل تريد إلغاء تثبيت %s؟"
+
+msgid "IDS_AT_BODY_UNINSTALL"
+msgstr "إلغاء التثبيت"

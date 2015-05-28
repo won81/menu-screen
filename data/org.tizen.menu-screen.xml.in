@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://tizen.org/ns/packages" package="@PACKAGE_NAME@" version="1.2.3" install-location="internal-only">
+	<label>Simple Menu-screen</label>
+	<author email="jinny.yoon@samsung.com" href="www.samsung.com">Jin Yoon</author>
+	<author email="yjoo93.park@samsung.com" href="www.samsung.com">Youngjoo Park</author>
+	<description>Simple Menu-screen Application</description>
+	<ui-application appid="@PACKAGE_NAME@" exec="@EXEC_PREFIX@/@PROJECT_NAME@" nodisplay="true" multiple="false" type="capp" taskmanage="false">
+		<label>Simple Menu-screen</label>
+		<category name="http://tizen.org/category/homeapp"/>
+	</ui-application>
+</manifest>

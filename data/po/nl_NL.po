@@ -1,0 +1,8 @@
+msgid "IDS_HS_BUTTON_DONE"
+msgstr "Gereed"
+
+msgid "IDS_AT_POP_UNINSTALL_PS_Q"
+msgstr "%s verwijderen?"
+
+msgid "IDS_AT_BODY_UNINSTALL"
+msgstr "Verwijderen"
